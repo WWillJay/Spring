@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="di" />
         <module name="spring-autowired" />
+        <module name="spring-aop-proxy" />
         <module name="spring-annotation" />
-        <module name="spring-hello" />
+        <module name="di" />
         <module name="spring-ioc" />
+        <module name="spring-ioc-hello" />
+        <module name="spring-appconfig" />
       </profile>
     </annotationProcessing>
   </component>
