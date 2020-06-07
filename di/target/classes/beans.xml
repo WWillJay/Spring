@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean id ="school" class="com.jay.School"/>
+
+    <bean id="student" class="com.jay.Student"/>
+    <bean id="student1" class ="com.jay.Student">
+        <!--普通值注入，value-->
+        <property name="name" value="xiaoming"></property>
+        <!--Bean注入，ref-->
+        <property name="address" ref="address"></property>
+        <!--数组注入，array标签-->
+        <property name="book">
+            <array value-type="java.lang.String">
+                <value>代码整洁之道</value>
+                <value>码农翻身</value>
+            </array>
+        </property>
+        <!--List注入，list标签-->
+        <property name="hobbies">
+            <list value-type="java.lang.String">
+                <value>打篮球</value>
+                <value>玩游戏</value>
+            </list>
+        </property>
+        <!--Set注入，set标签-->
+        <property name="games">
+            <set value-type="java.lang.String">
+                <value>英雄联盟</value>
+                <value>CF</value>
+            </set>
+        </property>
+        <!--Map注入，map标签-->
+        <property name="cards">
+            <map key-type="java.lang.String" value-type="java.lang.String">
+                <entry key="身份证" value="2333"/>
+                <entry key="银行卡" value="1333"/>
+            </map>
+        </property>
+        <!--Property注入，props标签-->
+        <property name="info">
+            <props>
+                <prop key="密码">xxx</prop>
+                <prop key="password">001</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="address" class = "com.jay.Address"></bean>
+</beans>

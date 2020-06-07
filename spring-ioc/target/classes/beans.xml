@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- 定义一个Bean -->
+    <bean id="daoImpl" class="com.jay.old.dao.UserDaoImpl"></bean>
+    <bean id="mysqlImpl" class="com.jay.old.dao.UserDaoMysqlImpl"></bean>
+
+    <bean id="userServiceImpl" class="com.jay.old.service.UserServiceImpl">
+        <property name="userDao" ref="daoImpl"></property>
+    </bean>
+
+    <bean id="mysqlUserServiceImpl" class="com.jay.old.service.UserServiceImpl">
+        <property name="userDao" ref="mysqlImpl"></property>
+    </bean>
+</beans>
