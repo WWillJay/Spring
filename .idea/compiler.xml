@@ -6,14 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-ioc-autowired" />
-        <module name="spring-ioc-di" />
-        <module name="spring-aop-proxy" />
-        <module name="spring-ioc-annotation" />
-        <module name="spring-ioc-appconfig" />
         <module name="spring-ioc" />
-        <module name="spring-ioc-hello" />
+        <module name="spring-aop-proxy" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring-ioc-annotation" target="1.5" />
+      <module name="spring-ioc-appconfig" target="1.5" />
+      <module name="spring-ioc-autowired" target="1.5" />
+      <module name="spring-ioc-di" target="1.5" />
+      <module name="spring-ioc-hello" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
