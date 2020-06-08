@@ -10,11 +10,11 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>spring-ioc</module>
-        <module>spring-hello</module>
-        <module>di</module>
-        <module>spring-autowired</module>
-        <module>spring-annotation</module>
-        <module>spring-appconfig</module>
+        <module>spring-ioc-hello</module>
+        <module>spring-ioc-di</module>
+        <module>spring-ioc-autowired</module>
+        <module>spring-ioc-annotation</module>
+        <module>spring-ioc-appconfig</module>
         <module>spring-aop-proxy</module>
     </modules>
 
@@ -32,6 +32,14 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.5</version>
+        </dependency>
+
     </dependencies>
 
 
