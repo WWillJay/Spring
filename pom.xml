@@ -16,6 +16,7 @@
         <module>spring-ioc-annotation</module>
         <module>spring-ioc-appconfig</module>
         <module>spring-aop-proxy</module>
+        <module>spring-aop</module>
     </modules>
 
     <dependencies>
