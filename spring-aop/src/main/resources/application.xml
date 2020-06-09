@@ -8,15 +8,39 @@
     http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <!--方式一：使用Spring API接口 MethodBeforeAdvice/AfterReturningAdvice/...-->
+    <!--注册bean-->
     <bean id="userServiceImpl" class="com.jay.way1.service.UserServiceImpl"/>
+    <!--执行环绕添加-->
     <bean id="beforeLog" class="com.jay.way1.log.BeforeLog"/>
     <bean id="afterLog" class="com.jay.way1.log.AfterLog"/>
-    
+    <!--配置AOP-->
     <aop:config>
+        <!--切入点-->
         <aop:pointcut id="userServicePointcut" expression="execution(* com.jay.way1.service.UserServiceImpl.*(..))"/>
-
         <aop:advisor advice-ref="beforeLog" pointcut-ref="userServicePointcut"/>
         <aop:advisor advice-ref="afterLog" pointcut-ref="userServicePointcut"/>
     </aop:config>
+
+
+    <!--方式二：自定义Log类（通知类），包含before()和after()-->
+    <bean id="log2" class="com.jay.way2.log.Log2"/>
+    <bean id="adminServiceImpl" class="com.jay.way2.service.AdminServiceImpl"/>
+    <!--配置AOP-->
+    <aop:config>
+        <!--切面，ref引用通知类-->
+        <aop:aspect ref="log2">
+            <!--切入点-->
+            <aop:pointcut id="pointcut" expression="execution(* com.jay.way2.service.AdminServiceImpl.*(..))"/>
+            <!--通知-->
+            <aop:before method="before" pointcut-ref="pointcut"/>
+            <aop:after method="after" pointcut-ref="pointcut"/>
+        </aop:aspect>
+    </aop:config>
+
+    <!--方式三：使用注解-->
+    <bean id="manageServiceImpl" class="com.jay.way3.service.ManageServiceImpl"/>
+    <aop:aspectj-autoproxy/>
+    <bean id="Log3" class="com.jay.way3.log.Log3"/>
 
 </beans>
